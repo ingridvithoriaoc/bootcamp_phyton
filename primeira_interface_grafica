@@ -1,0 +1,49 @@
+# Thinter biblioteca gráfica
+# as tk referencia os objetos e classes do módulo Tkinter
+
+import tkinter as tk
+
+# themed Tkinter, é um conjunto de widgets (elementos de interface)
+from tkinter import ttk
+
+def exibir_mensagem():
+    nome = nome_entry.get()
+    mensagem_label['text'] = 'Olá, ' + nome
+    
+# cria a janela principal 
+
+root = tk.Tk()
+root.title('Formulário de inscrição')
+ 
+# define o tamanho da janela 
+
+root.geometry('400x400')
+
+# define a cor de fundo da janela 
+root.configure(bg='white')
+
+# define a fonte 
+fonte=('Arial', 10)
+
+# cria os widgets
+nome_label = ttk.Label(root, text= 'Nome:', font=fonte, background='white')
+nome_entry = ttk.Entry(root, font= fonte, width=30)
+
+mensagem_label = ttk.Label(root, text='', font=fonte)
+
+
+# ajusta a posição geometricamente na tela 
+#nome_label.pack(padx=20, pady=20)
+
+# posiciona os widgets na janela 
+
+nome_label.grid(row=0, column=0, padx=10, pady=5)
+nome_entry.grid(row=0, column= 1, padx=10, pady=5)
+
+# adiciona um botão e posiciona na janela 
+botao = ttk.Button(root, text='Enviar', command=exibir_mensagem)
+botao.grid(row=1, column=0, columnspan=2, padx=5, pady=10)
+mensagem_label.grid(row=2, column=0, columnspan=2, pady=5)
+
+# inicia a interface gráfica
+root.mainloop()
