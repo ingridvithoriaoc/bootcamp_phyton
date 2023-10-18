@@ -1,0 +1,26 @@
+# programa solicita ao cliente o valor pago e informa o valor do troco 
+
+def calcular_troco(valor, valor_pago):
+    troco = valor - valor_pago
+    return troco
+
+produtos = []
+i = 0 
+cadastrar = int(input('Quantos produtos você quer cadastrar?'))
+for i in range (cadastrar):
+    nome = input(f'Digite o nome do produto {i+1}:')
+    estoque = input(f'Digite a quantidade do estoque {i+1}:')
+    valor = float(input(f'Digite o valor de venda {i+1}:'))
+
+    cadastro =(nome,estoque,valor)
+    produtos.append(cadastro)
+
+    valor_pago = float(input('Digite o valor pago:'))
+
+    troco = calcular_troco(valor, valor_pago)
+   
+    if valor_pago < valor:
+        print('Insuficiente para compra!')
+    else: 
+        print (troco)
+
